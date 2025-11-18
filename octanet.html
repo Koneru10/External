@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot News - Stay Updated</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #15202B;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(21, 32, 43, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #38444d;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1d9bf0;
+        }
+
+        .cta-button {
+            background-color: #1d9bf0;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #1a8cd8;
+        }
+
+        .hero-section {
+            background: linear-gradient(45deg, #192734, #22303c);
+            padding: 4rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #38444d;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #1d9bf0, #7856ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #8899a6;
+            margin-bottom: 2rem;
+        }
+
+        .features-section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: #192734;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #38444d;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1d9bf0;
+        }
+
+        .feature-description {
+            color: #8899a6;
+        }
+
+        .news-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1d9bf0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: #192734;
+            border: 1px solid #38444d;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            color: #1d9bf0;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .news-excerpt {
+            color: #8899a6;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-bar {
+            display: flex;
+            gap: 1rem;
+            color: #8899a6;
+            font-size: 0.9rem;
+        }
+
+        .interaction-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .interaction-item:hover {
+            color: #1d9bf0;
+            background-color: rgba(29, 155, 240, 0.1);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(45deg, #192734, #22303c);
+            border-top: 1px solid #38444d;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Hot News</div>
+            <a href="#signup" class="cta-button">Get Started</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Stay Informed, Stay Ahead</h1>
+            <p class="hero-subtitle">Your trusted source for real-time news updates, curated specifically for you.</p>
+            <a href="#signup" class="cta-button">Join Now</a>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Personalized Feed</h3>
+                <p class="feature-description">Get news tailored to your interests and preferences.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Real-time Updates</h3>
+                <p class="feature-description">Breaking news delivered instantly to your feed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Global Coverage</h3>
+                <p class="feature-description">Comprehensive news coverage from around the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2 class="section-title">Trending Stories</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <img src="C:\Users\K Chandraja\OneDrive\Desktop\Octanet Task\technology.jpg"alt="Technology News" class="news-image">
+                <div class="news-content">
+                    <div class="news-category">Technology</div>
+                    <h2 class="news-title">Latest Advancements in AI Technology</h2>
+                    <p class="news-excerpt">Artificial Intelligence continues to evolve with breakthrough developments in machine learning.</p>
+                    <div class="interaction-bar">
+                        <div class="interaction-item">💬 245</div>
+                        <div class="interaction-item">🔄 1.2K</div>
+                        <div class="interaction-item">♥ 3.8K</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="C:\Users\K Chandraja\OneDrive\Desktop\Octanet Task\sports.jpg" alt="Sports News" class="news-image">
+                <div class="news-content">
+                    <div class="news-category">Sports</div>
+                    <h2 class="news-title">Major League Finals Set to Begin</h2>
+                    <p class="news-excerpt">The championship series is scheduled to start next week with final preparations.</p>
+                    <div class="interaction-bar">
+                        <div class="interaction-item">💬 182</div>
+                        <div class="interaction-item">🔄 856</div>
+                        <div class="interaction-item">♥ 2.4K</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="C:\Users\K Chandraja\OneDrive\Desktop\Octanet Task\world.jpeg" alt="World News" class="news-image">
+                <div class="news-content">
+                    <div class="news-category">World</div>
+                    <h2 class="news-title">Global Climate Summit Concludes</h2>
+                    <p class="news-excerpt">World leaders reach new agreements on climate change initiatives.</p>
+                    <div class="interaction-bar">
+                        <div class="interaction-item">💬 423</div>
+                        <div class="interaction-item">🔄 2.1K</div>
+                        <div class="interaction-item">♥ 5.6K</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="hero-title">Join Our Community</h2>
+            <p class="hero-subtitle">Get instant access to personalized news and join millions of readers worldwide.</p>
+            <a href="#signup" class="cta-button">Sign Up Now</a>
+        </div>
+    </section>
+</body>
+</html>
